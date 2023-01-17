@@ -5,16 +5,21 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Document("user")
 public class User {
 
 	@Id
 	private String id;
 	
+	@JsonProperty("name")
 	private String name;
+	@JsonProperty("email")
 	private String email;
-	
+	@JsonProperty("createdOn")
 	private LocalDateTime createdOn;
+	@JsonProperty("updatedOn")
 	private LocalDateTime updatedOn;
 	
 	public User(String name, String email) {
